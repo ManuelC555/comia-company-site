@@ -1,6 +1,5 @@
 import { useState } from "react";
 import { useTranslation } from "react-i18next";
-import "./Projects.css";
 
 // Images
 import gonaives1 from "../assets/projects/gonaives1.jpg";
