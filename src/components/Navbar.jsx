@@ -47,7 +47,7 @@ export default function Navbar() {
 
           <div className="nav-phone">
   <span className="phone-icon">📞</span>
-  <a href="tel:+15145727758">+509 33262490</a>
+  <a href="tel:+50933262490">+509 33262490</a>
 </div>
 <LanguageDropdown />
 <button
