@@ -304,7 +304,7 @@ main {
 
 .about-layout {
   display: grid;
-  grid-template-columns: 1fr 2fr;
+  grid-template-columns: 1fr 1fr;
   gap: 40px;
   align-items: flex-start;
 }
@@ -318,6 +318,9 @@ main {
 /* Mobile */
 @media (max-width: 768px) {
   .about-layout {
+    grid-template-columns: 1fr;
+  }
+  .about-image{
     grid-template-columns: 1fr;
   }
 }
@@ -421,7 +424,7 @@ main {
   border-radius: 10px;
 }
 
-/* ===== FORCE STATUS COLORS (FINAL FIX) ===== */
+/* FORCE STATUS COLORS (FINAL FIX) */
 .projects .project-card .status.inProgress {
   background-color: #fff3cd;
   color: #856404;
@@ -525,7 +528,7 @@ main {
 /* DARK MODE  */
 body.dark {
   background: #1c1c1c;
-  color: #e5e5e5;
+  color: #fbf1f1;
 }
 
 body.dark .navbar {
@@ -547,7 +550,7 @@ body.dark .project-card {
 
 body.dark .footer {
   background: #151515;
-  color: #aaa;
+  color: #fbf1f1;
 }
 
 
@@ -563,5 +566,107 @@ body.dark .footer {
   opacity: 1;
 }
 
+/*  ABOUT BLOCK FIX (IMPORTANT)  */
+.about-block {
+  display: flex;
+  gap: 2rem;
+  align-items: center;
+}
+
+/* Desktop reverse ok */
+.about-block.reverse {
+  flex-direction: row-reverse;
+}
+
+/* MOBILE FIX */
+@media (max-width: 768px) {
+  .about-block,
+  .about-block.reverse {
+    flex-direction: column !important;
+    text-align: left;
+  }
+
+  .about-block img {
+    width: 100%;
+    margin-top: 1rem;
+  }
+}
 
 
+/* Global spacing */
+.section {
+  padding: 4rem 1rem;
+}
+
+/* Better typography */
+.about-text h1,
+.about-block h3 {
+  font-size: 1.8rem;
+  margin-bottom: 0.8rem;
+}
+
+.about-text p,
+.about-block p {
+  font-size: 1rem;
+  line-height: 1.75;
+  color: #333;
+}
+
+/* Card-like blocks */
+.about-block {
+  background: #f5f5f5;
+  padding: 2.5rem;
+  border-radius: 16px;
+  margin-bottom: 3rem;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.06);
+
+  /* animation base */
+  opacity: 0;
+  transform: translateY(30px);
+  animation: fadeUp 0.8s ease forwards;
+}
+
+/* Stagger effect */
+.about-block:nth-child(2) { animation-delay: 0.1s; }
+.about-block:nth-child(3) { animation-delay: 0.2s; }
+.about-block:nth-child(4) { animation-delay: 0.3s; }
+.about-block:nth-child(5) { animation-delay: 0.4s; }
+
+/* Images */
+.about-block img {
+  border-radius: 14px;
+  transition: transform 0.4s ease;
+}
+
+.about-block:hover img {
+  transform: scale(1.03);
+}
+
+/* Animation keyframes */
+@keyframes fadeUp {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Dark mode compatibility */
+body.dark .about-block {
+  background: #1c1c1c;
+}
+
+body.dark .about-block p {
+  color: #ffffff;
+}
+
+/* ===== DARK MODE FIX : ABOUT PAGE ===== */
+body.dark .about-content p,
+body.dark .about-block p,
+body.dark .about-text p {
+  color: #ffffff;
+}
+
+body.dark .about-content h1,
+body.dark .about-block h3 {
+  color: #ffffff;
+}

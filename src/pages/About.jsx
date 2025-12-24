@@ -1,10 +1,26 @@
 import { useTranslation } from "react-i18next";
 import { Link } from "react-router-dom";
+import { useEffect } from "react";
+
+
 
 export default function About() {
   const { t } = useTranslation();
 
+useEffect(() => {
+  document.title = "À propos | COMIA Construction";
+
+  const meta = document.querySelector("meta[name='description']");
+  if (meta) {
+    meta.setAttribute(
+      "content",
+      "COMIA Construction est spécialisée dans la construction, la rénovation, les travaux sanitaires, la menuiserie et les finitions professionnelles."
+    );
+  }
+}, []);
+
   return (
+    
     <section className="section">
       <div className="container about-layout">
 
@@ -20,28 +36,28 @@ export default function About() {
         </div>
       </div>
       <div className="about-block reverse">
-    <img src="/images/about/renovation.jpg" alt="Construction" />
+    <img src="/images/about/renovation.jpg" alt="Construction" className="about-image" />
     <div>
       <h3>{t("construction.title")}</h3>
       <p>{t("construction.text")}</p>
     </div>
   </div>
   <div className="about-block reverse">
-    <img src="/images/about/sanitary.jpg" alt="sanitary" />
+    <img src="/images/about/sanitary.jpg" alt="sanitary" className="about-image" />
     <div>
       <h3>{t("sanitary.title")}</h3>
       <p>{t("sanitary.text")}</p>
     </div>
   </div>
   <div className="about-block reverse">
-    <img src="/images/about/wood.jpg" alt="wood" />
+    <img src="/images/about/wood.jpg" alt="wood" className="about-image" />
     <div>
       <h3>{t("wood.title")}</h3>
       <p>{t("wood.text")}</p>
     </div>
   </div>
   <div className="about-block reverse">
-    <img src="/images/about/finishing.jpg" alt="finishing" />
+    <img src="/images/about/finishing.jpg" alt="finishing" className="about-image" />
     <div>
       <h3>{t("finishing.title")}</h3>
       <p>{t("finishing.text")}</p>
